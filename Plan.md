@@ -69,9 +69,10 @@ Normal traffic comes from a separate set of Docker containers that simulate beni
 
 ## Phase 2: Data Collection (Weeks 4–6)
 
-**Week 4: Define labels and capture plan**
+**Week 4: Public datasets and label definitions**
 
-- Label every flow: malicious (beacon) or benign (generator type).
+- Download and preprocess CIC-IDS2017 and UNSW-NB15 datasets. Extract botnet/C2-related flow samples and align feature schemas with our custom pipeline.
+- Label every custom flow: malicious (beacon) or benign (generator type).
 - Decide on flow definition: 5-tuple plus a time window (for example, 60-second windows per flow).
 
 **Week 5: Vary the beacon**
@@ -85,7 +86,7 @@ Normal traffic comes from a separate set of Docker containers that simulate beni
 - Convert PCAPs to flow records using Zeek (conn.log, http.log) — prefer Zeek over CICFlowMeter (CICFlowMeter has known flow reassembly bugs).
 - Store the labeled dataset as CSV with a documented schema and a README.
 
-**Milestone:** A labeled dataset with at least 15 beacon configurations and 3 benign traffic types, versioned in Git.
+**Milestone:** A labeled dataset with at least 15 beacon configurations and 3 benign traffic types, plus preprocessed CIC-IDS2017 and UNSW-NB15 subsets with aligned feature schemas, versioned in Git.
 
 ---
 

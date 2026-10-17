@@ -66,7 +66,16 @@ jupyter notebook detector/train.ipynb
 
 ---
 
-## Dataset
+## Datasets
+
+### Public Benchmarks
+
+| Dataset | Purpose |
+|---------|---------|
+| CIC-IDS2017 | Baseline benchmark — botnet and intrusion detection, direct comparison with published results |
+| UNSW-NB15 | Second benchmark — modern attack categories, network flow features |
+
+### Custom Lab Data
 
 Each sample is a labeled flow window (default: 60-second windows, 5-tuple key).
 
@@ -74,6 +83,14 @@ Each sample is a labeled flow window (default: 60-second windows, 5-tuple key).
 |-------|--------|
 | `malicious` | Beacon agent (15+ configurations) |
 | `benign` | Updater, REST poller, browser simulator |
+
+### Cross-Domain Evaluation
+
+| Train On | Test On | What It Measures |
+|----------|---------|-----------------|
+| Public (CIC-IDS / UNSW) | Custom C2 | Do published-dataset models catch unseen C2? |
+| Custom C2 | Public | Does our lab data generalize to real-world attacks? |
+| Both combined | Evasion variants | Does mixing data improve robustness against evasion? |
 
 Features per window: inter-arrival time stats, payload size stats, connection count, bytes up/down ratio, HTTP URI entropy (where available).
 
